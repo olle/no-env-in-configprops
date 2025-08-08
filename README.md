@@ -1,17 +1,18 @@
 BUG: Unable to test ENV values as configprops
 
-This show a setup where testing with `ApplicationContextRunner` does
-not provide capabilities to ensure that ENV variables are being bound
-to a list of custom configuration properties.
+This is a setup that shows how tests using the `ApplicationContextRunner`
+does not provide capabilities enough to assert that ENV variables are being
+bound to custom configuration properties type that is wrapping a list of
+record entries.
 
-However, running the application will output the bound properties.
+However, running the actual Spring Boot application will show that the ENV
+variable values are bound to the configuration properties just fine.
 
 ```sh
 > make # run app with ENV values and then tests
 ```
 
-The output shows that binding to the runtime works just fine, but that
-testing is broken.
+Works in the runtime. Broken in testing.
 
 **How can this be fixed?**
 
